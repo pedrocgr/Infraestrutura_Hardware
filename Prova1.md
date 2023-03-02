@@ -14,7 +14,7 @@ Desempenho Multi-ciclo:
 
 
 
-#**Hazards do Pipeline:**
+# **Hazards do Pipeline:**
 
 
 
