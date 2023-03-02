@@ -50,7 +50,7 @@ SpeedUp quando conflitos são resolvidos pelo compilador:
 2. Identificar os conflitos (dependências de dados)
 3. Colocar 1 ou 2 NOPs entre instruções com dependência de dados
 4. Identificar as dependências de controle (de desvio)
-5. Colocar 3 NOPs depois do desvio para dar tempo dele ser resolvido
+5. Colocar 3 NOPs depois do desvio para dar tempo dele ser resolvido. 
 6. Contar o número de instruções executadas (incluindo os NOPs) 
 7. Calcular o número de ciclos: Número de Instruções + 4
 8. Calcular CPI: número de ciclos / número de instruções (sem NOPs)
@@ -70,6 +70,10 @@ SpeedUp quando conflitos são resolvidos pelo compilador:
 - Quando uma bolha é adicionada, o multiplex adiciona 0 nos bits de controle da instrução e impede a próxima instrução de entrar.
 - Stalls reduzem o desempenho
 
-→ Como colocar menos NOPs para resolver conflitos?
+### → Como colocar menos NOPs para resolver conflitos de branch?
 
-Antecipa a resolução do desvio e transforma a instrução que entrou erradamente
+**Unidade de adiantamento**
+
+Resolvemos a resolução da branch já no estágio ID para saber se a branch foi TAKEN ou NOT-TAKEN e com isso já reduzimos a penalidade de 3 Ciclos(NOPs) para apenas 1.
+
+Antecipa a resolução do desvio e transforma a instrução que entrou erradamente na instrução que a branch está apontando. 
