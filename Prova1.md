@@ -2,8 +2,16 @@
 
 Utiliza-se o conceito de CPI(Clocks por instrução), quanto mais próximo de 1 o CPI, significa que temos um processador bem otimizado e que não utiliza de muitos NOPs, pois estes contam como instruções e deixam o CPU inativo(perde tempo/clocks à toa). Em Superescalares é possível que o CPI seja menor que 1 pois podemos ter 2 instruções acontecendo ao mesmo tempo, ou seja durante o mesmo período de clock.
 
-CPI = CPU time cycles / Instruction Count 
-CPU time cycles = Instruction Count x CPI 
+> CPI = Ciclos totais de execução do programa / Numero de instruções 
+
+Quantos ciclos de clock para uma CPU executando certo número de instruções?
+
+> CPU Clock Cycles = Numero de instruções * CPI
+
+Para saber quanto tempo demora pra executar?
+
+> CPU Exec. time = CPU CLock Cycles * Tempo de Ciclo de clock
+> CPU Exec. time = Número de instruções * CPI * Tempo de Ciclo de clock
 
 **CPI pipeline = Número de ciclos (n. instruções + 4) / número de instruções** 
 
