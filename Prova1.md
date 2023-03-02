@@ -80,6 +80,6 @@ Antecipa a resolução do desvio e transforma a instrução que entrou erradamen
 
 ![image](https://user-images.githubusercontent.com/118495219/222492296-7e6ec564-1970-4060-bca3-7da3143a2e24.png)
 
-*No estágio ID podemos ver a unidade "Control" que é basicamente uma pequena ALU para comparar valores dos Registradores e saber se o desvio ocorrerá. Este resultado passa por um MUX para decidir se o novo endereço da branch irá para o PC(program counter), ou seja a branch foi taken, ou continuará o caminho do pipeline já que a branch foi not-taken*
+*No estágio ID podemos ver a unidade "Control" que é basicamente uma pequena ALU para comparar valores dos Registradores e saber se o desvio ocorrerá. Este resultado passa por um MUX para decidir se o novo endereço da branch irá para o PC(program counter), ou seja a branch foi taken, ou o pipeline continuará normalmente já que a branch foi not-taken*
 
 
