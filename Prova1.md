@@ -14,7 +14,7 @@ Desempenho Multi-ciclo:
 
 
 
-# **Hazards do Pipeline:**
+## **Hazards do Pipeline:**
 
 
 
@@ -45,7 +45,7 @@ SpeedUp quando conflitos são resolvidos pelo compilador:
 8. Calcular CPI: número de ciclos / número de instruções (sem NOPs)
 9. SpeedUp = CPI Multiciclo / CPI Pipeline
 
-#**Otimizações do Pipeline**
+## **Otimizações do Pipeline**
 
 1. Adiantamento: solução do hardware para conflitos de dados. Pra isso, precisamos adicionar uma unidade de forwarding, ela detectará a dependência e adiantará o resultado que vai ser usado para a próxima instrução. Sempre monitora o registrador que será escrito por uma instrução na posição N e os registradores que serão usados em instruções em N+1 e N+2. 
 - Funciona bem pra instruções aritméticas e lógicas (tipo R)
