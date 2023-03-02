@@ -1,4 +1,5 @@
 → Calculando desempenho em processadores com Pipeline
+Utiliza-se o conceito de CPI(Clocks por instrução), quanto mais próximo de 1 o CPI, significa que temos um processador bem otimizado e que não utiliza de muitos NOPs, pois estes contam como instruções e deixam o CPU inativo(perde tempo/clocks à toa). Em Superescalares é possível que o CPI seja menor que 1 pois podemos ter 2 instruções acontecendo ao mesmo tempo, ou seja durante o mesmo período de clock.
 
 CPI = CPU time cycles / Instruction Count 
 CPU time cycles = Instruction Count x CPI 
@@ -48,7 +49,7 @@ SpeedUp quando conflitos são resolvidos pelo compilador:
 ## **Otimizações do Pipeline**
 
 1. Adiantamento: solução do hardware para conflitos de dados. Pra isso, precisamos adicionar uma unidade de forwarding, ela detectará a dependência e adiantará o resultado que vai ser usado para a próxima instrução. Sempre monitora o registrador que será escrito por uma instrução na posição N e os registradores que serão usados em instruções em N+1 e N+2. 
-- Funciona bem pra instruções aritméticas e lógicas (tipo R)
+- Funciona bem pra instruções aritméticas e lógicas ( tipo R )
 
 <aside>
 📃 Não espera pelo resultado lido da memória, mas utiliza o valor que ainda será escrito na memória.
