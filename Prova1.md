@@ -11,6 +11,7 @@ Quantos ciclos de clock para uma CPU executando certo número de instruções?
 Para saber quanto tempo demora pra executar?
 
 > CPU Exec. time = CPU CLock Cycles * Tempo de Ciclo de clock
+
 > CPU Exec. time = Número de instruções * CPI * Tempo de Ciclo de clock
 
 **CPI pipeline = Número de ciclos (n. instruções + 4) / número de instruções** 
