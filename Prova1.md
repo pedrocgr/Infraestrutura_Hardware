@@ -1,4 +1,5 @@
 → Calculando desempenho em processadores com Pipeline
+
 Utiliza-se o conceito de CPI(Clocks por instrução), quanto mais próximo de 1 o CPI, significa que temos um processador bem otimizado e que não utiliza de muitos NOPs, pois estes contam como instruções e deixam o CPU inativo(perde tempo/clocks à toa). Em Superescalares é possível que o CPI seja menor que 1 pois podemos ter 2 instruções acontecendo ao mesmo tempo, ou seja durante o mesmo período de clock.
 
 CPI = CPU time cycles / Instruction Count 
