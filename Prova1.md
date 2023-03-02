@@ -12,7 +12,11 @@ Desempenho Multi-ciclo:
 1. Numerar as instruções
 2. Contar número de instruções **executadas** 
 
+
+
 **Hazards do Pipeline:**
+
+
 
 1. Dependência de dados: quando há leitura de dados que são escritos em uma instrução anterior que ainda não atualizou o registrador
 
