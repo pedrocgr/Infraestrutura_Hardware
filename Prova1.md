@@ -83,3 +83,32 @@ Antecipa a resolução do desvio e transforma a instrução que entrou erradamen
 *No estágio ID podemos ver a unidade "Control" que é basicamente uma pequena ALU para comparar valores dos Registradores e saber se o desvio ocorrerá. Este resultado passa por um MUX para decidir se o novo endereço da branch irá para o PC(program counter), ou seja a branch foi taken, ou o pipeline continuará normalmente já que a branch foi not-taken*
 
 
+# ** Exceções no RISC-V **
+
+No contexto do RISC-V, as exceções representam situações inesperadas que interrompem o fluxo regular de instruções. Elas podem ser causadas por várias razões, incluindo instruções ilegais ou falhas de acesso à memória. 
+
+Quando ocorre uma exceção, o RISC-V salva o endereço da instrução que causou a exceção e transfere o controle para um manipulador de exceções predefinido. Essas exceções são tratadas por diferentes níveis de privilégio no RISC-V, como modos de usuário (U), supervisor (S) e máquina (M). A compreensão das exceções e de sua manipulação é crucial para a otimização e segurança de qualquer sistema baseado em RISC-V.
+
+# ** Reservation Station e Reorder Buffer (Sempre cai na prova!)
+
+Ambos são componentes importantes para a execução _out of order_, esses mecanismos ajudam a melhorar o desempenho da CPU possibilitando que instruções sejam executadas sem depender da ordem que tem no programa.
+
+    Reservation Station (RS):
+
+        Objetivo: As Reservation Stations têm como objetivo preparar instruções para execução assim que todos os seus operandos estiverem prontos. Eles ajudam a executar instruções fora de ordem, garantindo que as instruções sejam executadas assim que todos os seus pré-requisitos forem atendidos.
+
+        Funcionamento: Cada entrada na Reservation Station armazena informações sobre uma instrução, incluindo seus operandos. Se um operando ainda não estiver disponível (porque, por exemplo, está sendo produzido por uma instrução anterior que ainda não foi executada), a Reservation Station rastreará onde esse operando será gerado.
+
+        Benefícios: Ao permitir que instruções esperem ativamente pelos operandos de que precisam, as Reservation Stations ajudam a aumentar o paralelismo a nível de instrução. Instruções que não dependem de outras podem ser executadas sem esperar por aquelas que têm dependências.
+        
+    Reorder Buffer (ROB):
+
+        Objetivo: O principal objetivo do Reorder Buffer é garantir que as instruções sejam "retiradas" (ou seja, suas execuções sejam finalizadas e seus efeitos se tornem visíveis para o programa) na ordem do programa original, mesmo que sejam executadas fora de ordem. Isso é crucial para garantir a consistência e a semântica correta do programa.
+
+        Funcionamento: O ROB armazena instruções em ordem de programa. Cada entrada no buffer contém o tipo de instrução, o destino (se houver), o valor do resultado e o status da instrução. Uma vez que uma instrução foi executada, ela é marcada como tal no ROB. Quando a instrução mais antiga no ROB foi executada e todos os seus efeitos são conhecidos, ela é retirada: seus efeitos são realmente aplicados e ela é removida do ROB.
+
+        Benefícios: Além de garantir a ordem correta das instruções, o ROB também permite a recuperação eficiente de erros. Por exemplo, se um branch for mal predito, instruções subsequentes no ROB podem ser simplesmente descartadas, pois seus efeitos ainda não foram aplicados ao estado real da máquina.
+
+        ![image](https://github.com/pedrocgr/Infraestrutura_Hardware/assets/118495219/daf81317-2c28-436a-a6c5-bc94aa91bde1)
+
+        *As duas ferramentas, ROB e RS, trabalham em conjunto como pode ser visto na imagem acima para permitir alto desempenho com execução fora de ordem, aproveitando ao máximo o hardware disponível e buscando aumentar o _throughput_ de instruções e minimizar os ciclos da CPU desperdiçados.*
