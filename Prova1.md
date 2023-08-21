@@ -93,7 +93,7 @@ Quando ocorre uma exceção, o RISC-V salva o endereço da instrução que causo
 
 Ambos são componentes importantes para a execução _out of order_, esses mecanismos ajudam a melhorar o desempenho da CPU possibilitando que instruções sejam executadas sem depender da ordem que tem no programa.
 
-Reservation Station (RS):
+## Reservation Station (RS):
 
 Objetivo: As Reservation Stations têm como objetivo preparar instruções para execução assim que todos os seus operandos estiverem prontos. Eles ajudam a executar instruções fora de ordem, garantindo que as instruções sejam executadas assim que todos os seus pré-requisitos forem atendidos.
 
@@ -101,7 +101,7 @@ Funcionamento: Cada entrada na Reservation Station armazena informações sobre 
 
 Benefícios: Ao permitir que instruções esperem ativamente pelos operandos de que precisam, as Reservation Stations ajudam a aumentar o paralelismo a nível de instrução. Instruções que não dependem de outras podem ser executadas sem esperar por aquelas que têm dependências.
     
-Reorder Buffer (ROB):
+## Reorder Buffer (ROB):
 
 Objetivo: O principal objetivo do Reorder Buffer é garantir que as instruções sejam "retiradas" (ou seja, suas execuções sejam finalizadas e seus efeitos se tornem visíveis para o programa) na ordem do programa original, mesmo que sejam executadas fora de ordem. Isso é crucial para garantir a consistência e a semântica correta do programa.
 
