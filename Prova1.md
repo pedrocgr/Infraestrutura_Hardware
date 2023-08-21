@@ -83,13 +83,13 @@ Antecipa a resolução do desvio e transforma a instrução que entrou erradamen
 *No estágio ID podemos ver a unidade "Control" que é basicamente uma pequena ALU para comparar valores dos Registradores e saber se o desvio ocorrerá. Este resultado passa por um MUX para decidir se o novo endereço da branch irá para o PC(program counter), ou seja a branch foi taken, ou o pipeline continuará normalmente já que a branch foi not-taken*
 
 
-# ** Exceções no RISC-V **
+#  Exceções no RISC-V 
 
 No contexto do RISC-V, as exceções representam situações inesperadas que interrompem o fluxo regular de instruções. Elas podem ser causadas por várias razões, incluindo instruções ilegais ou falhas de acesso à memória. 
 
 Quando ocorre uma exceção, o RISC-V salva o endereço da instrução que causou a exceção e transfere o controle para um manipulador de exceções predefinido. Essas exceções são tratadas por diferentes níveis de privilégio no RISC-V, como modos de usuário (U), supervisor (S) e máquina (M). A compreensão das exceções e de sua manipulação é crucial para a otimização e segurança de qualquer sistema baseado em RISC-V.
 
-# ** Reservation Station e Reorder Buffer (Sempre cai na prova!)
+# Reservation Station e Reorder Buffer (Sempre cai na prova!)
 
 Ambos são componentes importantes para a execução _out of order_, esses mecanismos ajudam a melhorar o desempenho da CPU possibilitando que instruções sejam executadas sem depender da ordem que tem no programa.
 
@@ -109,6 +109,6 @@ Ambos são componentes importantes para a execução _out of order_, esses mecan
 
         Benefícios: Além de garantir a ordem correta das instruções, o ROB também permite a recuperação eficiente de erros. Por exemplo, se um branch for mal predito, instruções subsequentes no ROB podem ser simplesmente descartadas, pois seus efeitos ainda não foram aplicados ao estado real da máquina.
 
-        ![image](https://github.com/pedrocgr/Infraestrutura_Hardware/assets/118495219/daf81317-2c28-436a-a6c5-bc94aa91bde1)
+![image](https://github.com/pedrocgr/Infraestrutura_Hardware/assets/118495219/daf81317-2c28-436a-a6c5-bc94aa91bde1)
 
-        *As duas ferramentas, ROB e RS, trabalham em conjunto como pode ser visto na imagem acima para permitir alto desempenho com execução fora de ordem, aproveitando ao máximo o hardware disponível e buscando aumentar o _throughput_ de instruções e minimizar os ciclos da CPU desperdiçados.*
+*As duas ferramentas, ROB e RS, trabalham em conjunto como pode ser visto na imagem acima para permitir alto desempenho com execução fora de ordem, aproveitando ao máximo o hardware disponível e buscando aumentar o _throughput_ de instruções e minimizar os ciclos da CPU desperdiçados.*
